@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E7363911B08B60900832D36 /* TLSWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363901B08B60900832D36 /* TLSWrapper.m */; };
+		5E73639C1B08BEBC00832D36 /* deviceA.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5E7363931B08BE4100832D36 /* deviceA.p12 */; };
+		5E73639D1B08BEBF00832D36 /* deviceB.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 5E7363941B08BE4100832D36 /* deviceB.p12 */; };
+		5E73639E1B08BEC200832D36 /* root.cert.der in Resources */ = {isa = PBXBuildFile; fileRef = 5E7363951B08BE4100832D36 /* root.cert.der */; };
+		5E7363A41B08CDDC00832D36 /* TLSTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363A31B08CDDC00832D36 /* TLSTestServer.m */; };
+		5E7363A71B08CDED00832D36 /* TLSTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363A61B08CDED00832D36 /* TLSTestClient.m */; };
 		D73B17181B08B3D400E17307 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B17171B08B3D400E17307 /* main.m */; };
 		D73B171B1B08B3D400E17307 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B171A1B08B3D400E17307 /* AppDelegate.m */; };
 		D73B171E1B08B3D400E17307 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B171D1B08B3D400E17307 /* ViewController.m */; };
@@ -27,6 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E73638F1B08B60900832D36 /* TLSWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSWrapper.h; sourceTree = "<group>"; };
+		5E7363901B08B60900832D36 /* TLSWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSWrapper.m; sourceTree = "<group>"; };
+		5E7363931B08BE4100832D36 /* deviceA.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = deviceA.p12; path = TLSDemoTests/deviceA.p12; sourceTree = SOURCE_ROOT; };
+		5E7363941B08BE4100832D36 /* deviceB.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = deviceB.p12; path = TLSDemoTests/deviceB.p12; sourceTree = SOURCE_ROOT; };
+		5E7363951B08BE4100832D36 /* root.cert.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = root.cert.der; path = TLSDemoTests/root.cert.der; sourceTree = SOURCE_ROOT; };
+		5E7363A21B08CDDC00832D36 /* TLSTestServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSTestServer.h; sourceTree = "<group>"; };
+		5E7363A31B08CDDC00832D36 /* TLSTestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSTestServer.m; sourceTree = "<group>"; };
+		5E7363A51B08CDED00832D36 /* TLSTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSTestClient.h; sourceTree = "<group>"; };
+		5E7363A61B08CDED00832D36 /* TLSTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSTestClient.m; sourceTree = "<group>"; };
 		D73B17121B08B3D400E17307 /* TLSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73B17161B08B3D400E17307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D73B17171B08B3D400E17307 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +100,12 @@
 				D73B171A1B08B3D400E17307 /* AppDelegate.m */,
 				D73B171C1B08B3D400E17307 /* ViewController.h */,
 				D73B171D1B08B3D400E17307 /* ViewController.m */,
+				5E73638F1B08B60900832D36 /* TLSWrapper.h */,
+				5E7363901B08B60900832D36 /* TLSWrapper.m */,
+				5E7363A21B08CDDC00832D36 /* TLSTestServer.h */,
+				5E7363A31B08CDDC00832D36 /* TLSTestServer.m */,
+				5E7363A51B08CDED00832D36 /* TLSTestClient.h */,
+				5E7363A61B08CDED00832D36 /* TLSTestClient.m */,
 				D73B171F1B08B3D400E17307 /* Main.storyboard */,
 				D73B17221B08B3D400E17307 /* Images.xcassets */,
 				D73B17241B08B3D400E17307 /* LaunchScreen.xib */,
@@ -96,6 +117,9 @@
 		D73B17151B08B3D400E17307 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5E7363931B08BE4100832D36 /* deviceA.p12 */,
+				5E7363941B08BE4100832D36 /* deviceB.p12 */,
+				5E7363951B08BE4100832D36 /* root.cert.der */,
 				D73B17161B08B3D400E17307 /* Info.plist */,
 				D73B17171B08B3D400E17307 /* main.m */,
 			);
@@ -199,7 +223,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E73639E1B08BEC200832D36 /* root.cert.der in Resources */,
 				D73B17211B08B3D400E17307 /* Main.storyboard in Resources */,
+				5E73639D1B08BEBF00832D36 /* deviceB.p12 in Resources */,
+				5E73639C1B08BEBC00832D36 /* deviceA.p12 in Resources */,
 				D73B17261B08B3D400E17307 /* LaunchScreen.xib in Resources */,
 				D73B17231B08B3D400E17307 /* Images.xcassets in Resources */,
 			);
@@ -219,9 +246,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7363A41B08CDDC00832D36 /* TLSTestServer.m in Sources */,
 				D73B171E1B08B3D400E17307 /* ViewController.m in Sources */,
 				D73B171B1B08B3D400E17307 /* AppDelegate.m in Sources */,
 				D73B17181B08B3D400E17307 /* main.m in Sources */,
+				5E7363911B08B60900832D36 /* TLSWrapper.m in Sources */,
+				5E7363A71B08CDED00832D36 /* TLSTestClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +374,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TLSDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TLSDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +444,7 @@
 				D73B17371B08B3D400E17307 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D73B17381B08B3D400E17307 /* Build configuration list for PBXNativeTarget "TLSDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +453,7 @@
 				D73B173A1B08B3D400E17307 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

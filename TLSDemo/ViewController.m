@@ -7,17 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "TLSTestClient.h"
+#import "TLSTestServer.h"
 
 @interface ViewController ()
 
 - (IBAction)buttonClicked:(id)sender;
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    TLSTestServer* _server;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    _server = [[TLSTestServer alloc] initWithPort:7777];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +30,10 @@
 }
 
 - (IBAction)buttonClicked:(id)sender {
-    NSLog(@"i just got clicked!");
+    NSLog(@"Initiating test");
+
+    dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+        [TLSTestClient runTestWithHost:@"localhost" port:7777];
+    });
 }
 @end
