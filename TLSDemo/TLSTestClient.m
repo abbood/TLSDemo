@@ -15,6 +15,21 @@
 + (void)runTestWithHost:(NSString*)host
                    port:(int)port
 {
+    for( int i=0; i < 10; ++i) {
+        dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+            for( int j=0; j < 20; ++j) {
+                [TLSTestClient testSessionWithHost:host
+                                              port:port
+                                       numRequests:1 + (random() % 20)];
+            }
+        });
+    }
+}
+
++ (void)testSessionWithHost:(NSString*)host
+                       port:(int)port
+                numRequests:(int)numRequests
+{
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
     CFStreamCreatePairWithSocketToHost( kCFAllocatorDefault, (__bridge CFStringRef)host, port,
@@ -32,7 +47,7 @@
                                                 identity:identity
                                                 isServer:NO];
 
-    for( int n=0; n < 10; ++n) {
+    for( int n=0; n < numRequests; ++n) {
         NSLog(@"Client: Sending request %d", n);
 
         // Make an HTTP request
