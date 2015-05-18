@@ -125,13 +125,15 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
                                                 identity:identity
                                                 isServer:YES];
 
+    int nRequests = 0;
+
     for(;;) {
         NSLog(@"Server: Trying to read a request...");
 
         // Receive a request.
         NSDictionary* request = [HTTPParser readWithTLSWrapper:tls];
         if( request && request.count == 0) {
-            NSLog(@"Server: End of session");
+            NSLog(@"Server: End of session; Served %d requests.", nRequests);
             return;
         }
 
@@ -139,6 +141,8 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
             NSLog(@"Server: Error receiving request");
             return;
         }
+
+        ++nRequests;
 
         // Create a random response
         NSMutableString* body = [NSMutableString new];
