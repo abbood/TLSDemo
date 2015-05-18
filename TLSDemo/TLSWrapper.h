@@ -25,4 +25,9 @@
 - (NSInteger)write:(const uint8_t *)buffer
          maxLength:(NSUInteger)len;
 
+- (NSInteger)write:(const uint8_t *)data
+            length:(NSInteger)length;
+
+- (BOOL)writeString:(NSString*)string;
+
 @end

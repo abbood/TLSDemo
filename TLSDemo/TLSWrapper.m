@@ -332,4 +332,22 @@ OSStatus TLSWrapperWrite( SSLConnectionRef connection, const void *data, size_t 
     return processed;
 }
 
+- (NSInteger)write:(const uint8_t*)data
+            length:(NSInteger)length
+{
+    NSUInteger written = 0;
+    while( written < length) {
+        NSInteger rc = [self write:data+written maxLength:length-written];
+        if( rc < 0) return written > 0 ? written : -1;
+        written += rc;
+    }
+    return written;
+}
+
+- (BOOL)writeString:(NSString*)string
+{
+    NSData* data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    return [self write:[data bytes] maxLength:[data length]] == [data length];
+}
+
 @end

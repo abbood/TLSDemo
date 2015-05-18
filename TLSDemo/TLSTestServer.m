@@ -140,16 +140,20 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
             return;
         }
 
+        // Create a random response
+        NSMutableString* body = [NSMutableString new];
+        int len = 1 + (random() % 2000);
+        for( int i=0; i < len; ++i) {
+            [body appendFormat:@"%c", (char)('a'+(random()%26))];
+        }
+
         // Send the response
-        static const char* response = "HTTP/1.0 200 OK\r\nContent-Length: 0\r\n\r\n\r\n";
-        NSUInteger remaining = strlen(response);
-        while( remaining) {
-            NSInteger rc = [tls write:(void*)response maxLength:remaining];
-            if( rc < 0) {
-                NSLog(@"Server: Write error with %d bytes remaining.", (int)remaining);
-                return;
-            }
-            remaining -= rc;
+        NSString* response = [NSString stringWithFormat:@"HTTP/1.0 200 OK\r\nContent-Length: %d\r\n\r\n%@\r\n",
+                              len, body];
+        BOOL rc = [tls writeString:response];
+        if( !rc) {
+            NSLog(@"Server: Error writing %d-byte message body", len);
+            return;
         }
     }
 }

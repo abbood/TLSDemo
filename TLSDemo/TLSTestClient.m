@@ -36,15 +36,10 @@
         NSLog(@"Client: Sending request %d", n);
 
         // Make an HTTP request
-        static const char* request = "GET / HTTP/1.0\r\nContent-Length: 0\r\n\r\n\r\n";
-        NSUInteger remaining = strlen(request);
-        while( remaining) {
-            NSInteger rc = [tls write:(void*)request maxLength:remaining];
-            if( rc < 0) {
-                NSLog(@"Client: Write error with %d bytes remaining. Terminating session.", (int)remaining);
-                return;
-            }
-            remaining -= rc;
+        BOOL rc = [tls writeString:@"GET / HTTP/1.0\r\nContent-Length: 0\r\n\r\n\r\n"];
+        if( !rc) {
+            NSLog(@"Client: Write error. Terminating session.");
+            return;
         }
 
         // Read the response.
