@@ -8,6 +8,7 @@
 
 #import "TLSTestServer.h"
 #import "TLSWrapper.h"
+#import "HTTPParser.h"
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <sys/socket.h>
@@ -127,23 +128,16 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
     for(;;) {
         NSLog(@"Server: Trying to read a request...");
 
-        // Receive a request.  We assume a zero content-length
-        BOOL incoming = NO;
-        int newlines = 0;
-        while(newlines < 3) {
-            char c;
-            NSInteger rc = [tls read:(void*)&c maxLength:1];
-            if( rc == 0 && incoming == NO) {
-                NSLog(@"Server: End of session");
-                return;
-            }
-            if( rc != 1) {
-                NSLog(@"Server: Error receiving request: %d", (int)rc);
-                return;
-            }
-            incoming = YES;
-            if( c == '\n') newlines++;
-            else if( c != '\r') newlines = 0;
+        // Receive a request.
+        NSDictionary* request = [HTTPParser readWithTLSWrapper:tls];
+        if( request && request.count == 0) {
+            NSLog(@"Server: End of session");
+            return;
+        }
+
+        if( request == nil) {
+            NSLog(@"Server: Error receiving request");
+            return;
         }
 
         // Send the response

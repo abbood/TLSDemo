@@ -13,6 +13,7 @@
 		5E73639E1B08BEC200832D36 /* root.cert.der in Resources */ = {isa = PBXBuildFile; fileRef = 5E7363951B08BE4100832D36 /* root.cert.der */; };
 		5E7363A41B08CDDC00832D36 /* TLSTestServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363A31B08CDDC00832D36 /* TLSTestServer.m */; };
 		5E7363A71B08CDED00832D36 /* TLSTestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363A61B08CDED00832D36 /* TLSTestClient.m */; };
+		5E7363AA1B09B84700832D36 /* HTTPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7363A91B09B84700832D36 /* HTTPParser.m */; };
 		D73B17181B08B3D400E17307 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B17171B08B3D400E17307 /* main.m */; };
 		D73B171B1B08B3D400E17307 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B171A1B08B3D400E17307 /* AppDelegate.m */; };
 		D73B171E1B08B3D400E17307 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D73B171D1B08B3D400E17307 /* ViewController.m */; };
@@ -42,6 +43,8 @@
 		5E7363A31B08CDDC00832D36 /* TLSTestServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSTestServer.m; sourceTree = "<group>"; };
 		5E7363A51B08CDED00832D36 /* TLSTestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSTestClient.h; sourceTree = "<group>"; };
 		5E7363A61B08CDED00832D36 /* TLSTestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSTestClient.m; sourceTree = "<group>"; };
+		5E7363A81B09B84700832D36 /* HTTPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPParser.h; sourceTree = "<group>"; };
+		5E7363A91B09B84700832D36 /* HTTPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPParser.m; sourceTree = "<group>"; };
 		D73B17121B08B3D400E17307 /* TLSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73B17161B08B3D400E17307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D73B17171B08B3D400E17307 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				5E7363A31B08CDDC00832D36 /* TLSTestServer.m */,
 				5E7363A51B08CDED00832D36 /* TLSTestClient.h */,
 				5E7363A61B08CDED00832D36 /* TLSTestClient.m */,
+				5E7363A81B09B84700832D36 /* HTTPParser.h */,
+				5E7363A91B09B84700832D36 /* HTTPParser.m */,
 				D73B171F1B08B3D400E17307 /* Main.storyboard */,
 				D73B17221B08B3D400E17307 /* Images.xcassets */,
 				D73B17241B08B3D400E17307 /* LaunchScreen.xib */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E7363A41B08CDDC00832D36 /* TLSTestServer.m in Sources */,
+				5E7363AA1B09B84700832D36 /* HTTPParser.m in Sources */,
 				D73B171E1B08B3D400E17307 /* ViewController.m in Sources */,
 				D73B171B1B08B3D400E17307 /* AppDelegate.m in Sources */,
 				D73B17181B08B3D400E17307 /* main.m in Sources */,

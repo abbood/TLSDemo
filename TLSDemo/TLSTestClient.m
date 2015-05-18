@@ -8,6 +8,7 @@
 
 #import "TLSTestClient.h"
 #import "TLSWrapper.h"
+#import "HTTPParser.h"
 
 @implementation TLSTestClient
 
@@ -46,17 +47,17 @@
             remaining -= rc;
         }
 
-        // Read the response.  We assume a zero content-length
-        int newlines = 0;
-        while(newlines < 3) {
-            char c;
-            NSInteger rc = [tls read:(void*)&c maxLength:1];
-            if( rc != 1) {
-                NSLog(@"Client: Error receiving response. Terminating session.");
-                return;
-            }
-            if( c == '\n') newlines++;
-            else if( c != '\r') newlines = 0;
+        // Read the response.
+        NSDictionary* response = [HTTPParser readWithTLSWrapper:tls];
+
+        if( response && response.count == 0) {
+            NSLog(@"Client: The server hung up on us! Terminating session.");
+            return;
+        }
+
+        if( response == nil) {
+            NSLog(@"Client: Bad response. Terminating session.");
+            return;
         }
     }
 
